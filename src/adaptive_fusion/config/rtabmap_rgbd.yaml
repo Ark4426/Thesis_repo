@@ -1,0 +1,45 @@
+rtabmap:
+  ros__parameters:
+    frame_id: "base_footprint"
+    odom_frame_id: "odom"
+    map_frame_id: "map"
+
+    # RGB-D input mode
+    subscribe_depth: true
+    subscribe_rgb: true
+    subscribe_scan: false
+    subscribe_stereo: false
+
+    # Topic QoS
+    qos_image: 2
+    qos_camera_info: 2
+
+    # Publish odometry for fusion node
+    publish_tf: false
+    odom_tf_angular_variance: 0.05
+    odom_tf_linear_variance: 0.05
+
+    # Detection rate — process every frame at 10 Hz
+    Rtabmap/DetectionRate: "0"
+    Rtabmap/TimeThr: "0"
+
+    # Feature extraction
+    Kp/MaxFeatures: "400"
+    Kp/DetectorStrategy: "6"      # ORB
+    ORB/NFeatures: "400"
+    ORB/ScaleFactor: "1.2"
+    ORB/NLevels: "8"
+    ORB/FastThreshold: "20"
+
+    # Visual odometry
+    Odom/Strategy: "0"            # Frame-to-map (F2M)
+    Odom/ResetCountdown: "0"
+    OdomF2M/MaxSize: "2000"
+    Vis/MinInliers: "15"
+    Vis/InlierDistance: "0.1"
+
+    # Loop closure
+    Mem/IncrementalMemory: "true"
+    Mem/InitWMWithAllNodes: "false"
+    RGBD/LoopClosureEnabled: "true"
+    Rtabmap/LoopThr: "0.11"

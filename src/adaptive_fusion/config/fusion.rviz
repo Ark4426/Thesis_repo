@@ -1,0 +1,200 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 70
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+      Splitter Ratio: 0.55
+    Tree Height: 400
+  - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Cell Size: 1
+      Color: 100; 100; 100
+      Enabled: true
+      Name: Grid
+      Plane: XY
+      Plane Cell Count: 24
+      Reference Frame: map
+      Value: true
+    - Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Enabled: true
+      Name: "LiDAR Map (slam_toolbox)"
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+        Value: /map
+      Update Topic:
+        Depth: 5
+        Value: /map_updates
+      Use Timestamp: false
+      Value: true
+    - Class: rviz_default_plugins/RobotModel
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Name: RobotModel
+      TF Prefix: ""
+      Value: true
+    - Class: rviz_default_plugins/LaserScan
+      Color: 255; 0; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Name: "LiDAR Scan"
+      Position Transformer: XYZ
+      Size (m): 0.05
+      Style: Flat Squares
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        Value: /scan
+      Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Name: "RGB Camera"
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        Value: /camera/image_raw
+      Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Name: "Depth Camera"
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        Value: /camera/depth/image_raw
+      Value: true
+    - Class: rviz_default_plugins/Pose
+      Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.1
+      Color: 0; 200; 0
+      Enabled: true
+      Head Length: 0.15
+      Head Radius: 0.12
+      Name: "Visual Pose (RTAB-Map)"
+      Shaft Length: 0.5
+      Shaft Radius: 0.04
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        Value: /fusion/visual_pose
+      Value: true
+    - Class: rviz_default_plugins/Pose
+      Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.1
+      Color: 0; 100; 255
+      Enabled: true
+      Head Length: 0.15
+      Head Radius: 0.12
+      Name: "LiDAR Pose (SLAM Toolbox)"
+      Shaft Length: 0.5
+      Shaft Radius: 0.04
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        Value: /fusion/lidar_pose
+      Value: true
+    - Class: rviz_default_plugins/Pose
+      Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.1
+      Color: 255; 40; 40
+      Enabled: true
+      Head Length: 0.2
+      Head Radius: 0.15
+      Name: "Fused Pose"
+      Shaft Length: 0.7
+      Shaft Radius: 0.06
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        Value: /fusion/fused_pose
+      Value: true
+    - Class: rviz_default_plugins/Pose
+      Alpha: 0.8
+      Axes Length: 0.6
+      Axes Radius: 0.06
+      Color: 255; 255; 255
+      Enabled: true
+      Head Length: 0.12
+      Head Radius: 0.1
+      Name: "Ground Truth"
+      Shaft Length: 0.45
+      Shaft Radius: 0.03
+      Shape: Axes
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Reliability Policy: Best Effort
+        Value: /fusion/ground_truth
+      Value: true
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Name: TF
+      Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 35; 35; 40
+    Fixed Frame: map
+    Frame Rate: 15
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/FocusCamera
+  Value: true
+  Views:
+    Current:
+      Angle: 0
+      Class: rviz_default_plugins/TopDownOrtho
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.01
+      Scale: 38
+      Target Frame: <Fixed Frame>
+      X: 0
+      Y: 0
+    Saved: ~
+Window Geometry:
+  "Depth Camera":
+    collapsed: false
+  Displays:
+    collapsed: false
+  Height: 900
+  "RGB Camera":
+    collapsed: false
+  Width: 1500
+  X: 60
+  Y: 60

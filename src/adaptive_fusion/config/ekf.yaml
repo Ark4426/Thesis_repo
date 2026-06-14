@@ -1,0 +1,41 @@
+# Baseline B4 (Methodology §3.5): robot_localization EKF fusing the two
+# SLAM pose estimates with covariance-weighted updates.
+#   pose0 = visual SLAM pose  (/fusion/visual_pose_cov, frame 'map',
+#           covariance forwarded from rtabmap rgbd_odometry — inflates to
+#           ~1e4 on tracking loss, so the EKF de-weights vision exactly when
+#           it degrades)
+#   pose1 = LiDAR SLAM pose   (/fusion/lidar_pose_cov: the continuous TF
+#           pose with slam_toolbox's latest /pose covariance — raw /pose
+#           is too sparse under load to drive an EKF on its own)
+# Output: /odometry/filtered (recorded as the B4 estimate by evaluate.py)
+ekf_filter_node:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 10.0
+    sensor_timeout: 0.5
+    two_d_mode: true
+    publish_tf: false          # observer only — never touches the TF tree
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_footprint
+    world_frame: map
+
+    pose0: /fusion/visual_pose_cov
+    pose0_config: [true,  true,  false,   # x, y, z
+                   false, false, true,    # roll, pitch, yaw
+                   false, false, false,   # vx, vy, vz
+                   false, false, false,   # vroll, vpitch, vyaw
+                   false, false, false]   # ax, ay, az
+    pose0_differential: false
+    pose0_relative: false
+    pose0_queue_size: 10
+
+    pose1: /fusion/lidar_pose_cov
+    pose1_config: [true,  true,  false,
+                   false, false, true,
+                   false, false, false,
+                   false, false, false,
+                   false, false, false]
+    pose1_differential: false
+    pose1_relative: false
+    pose1_queue_size: 10
